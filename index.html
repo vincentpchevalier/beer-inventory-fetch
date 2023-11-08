@@ -3,11 +3,33 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Beer Store</title>
-
+		<title>Beer Order</title>
 		<link rel="stylesheet" href="./main.css" />
 	</head>
 	<body>
-		<script src="main.js" defer></script>
+		<main>
+			<h1>The Beer Hall</h1>
+
+			<div class="tally">
+				<p>Total price: <span id="totalPrice">$0.00</span></p>
+			</div>
+
+			<div class="beers">
+				<h2>Beer Menu</h2>
+				<ul id="beerList">
+					<li class="message">No beers fetched.</li>
+					<!-- Beers will be displayed here -->
+				</ul>
+			</div>
+
+			<div class="orders">
+				<h2>Beer Order</h2>
+				<ul id="orderList">
+					<li class="message">No beers ordered.</li>
+					<!-- Orders will be displayed here -->
+				</ul>
+			</div>
+		</main>
+		<script src="./main.js" defer></script>
 	</body>
 </html>
