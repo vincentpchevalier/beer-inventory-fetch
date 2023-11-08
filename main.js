@@ -9,13 +9,15 @@
 // build the list of beers with the following markup:
 // `
 //   <li class="beer" data-id="${beer.id}">
-//     <p class="beer__name">${beer.name}</p>
-//     <p class="beer__style">${beer.style}</p>
-//     <p class="beer__abv">${beer.alcohol}</p>
-//     <p class="beer__price">$0.00</p>
+//     <div class="beer__info">
+//       <p class="beer__name">${beer.name}</p>
+//       <p class="beer__style">${beer.style}</p>
+//       <p class="beer__abv">${beer.alcohol}</p>
+//     </div>
+//     <p class="beer__price">$${beer.price}</p>
 //     <button id="addBeerButton" class="beer__button">Add to Order</button>
 //   </li>
-// `
+// `;
 
 // create a function that returns a random price between two numbers and that is a string with two decimal places
 
