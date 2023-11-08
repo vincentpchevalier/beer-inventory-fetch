@@ -1,5 +1,9 @@
 // initialize the app
 
+function init() {
+	console.log('App initialized.');
+}
+
 // create a function called displayBeers() to display the list of beers in the beerList <ul>
 
 // create a function called fetchBeers() to fetch a list of beers from https://random-data-api.com/api/v2/beers
@@ -48,3 +52,5 @@
 // 	`
 
 // modify the orderBeer() function to check if the beer is already in the orders array. if it is, increment the quantity by 1. if it is not, add the beer to the orders array
+
+document.addEventListener('DOMContentLoaded', init);
