@@ -2,7 +2,7 @@
 
 // create a function called displayBeers() to display the list of beers in the beerList <ul>
 
-// create a function called fetchBeers() to fetch a list of beers from https://random-data-api.com/api/v2/beers
+// create a function called fetchBeers() to fetch a list of beers from https://random-data-api.com/api/v2/beers. fetch 5-10 beers
 
 // run the fetchBeers() function when the app is initialized
 
@@ -19,9 +19,13 @@
 
 // create a function that returns a random price between two numbers and that is a string with two decimal places
 
-// return to the fetchBeers() function and refactor to add the price to each beer object. only keep the id, name, style, alcohol, and price properties in each beer object
+// create beer object only keeping the id, name, style, alcohol, and price properties in each beer object. add it to the fetchBeers function
 
 // create an array called beerMenu to store the beer objects
+
+// push new beer objects into beerMenu
+
+// use the beerMenu array to display the list of beers (with the price included)
 
 // use the beerMenu array to display the list of beers (with the price included)
 
