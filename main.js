@@ -151,5 +151,7 @@ function displayOrders(orderArr) {
 
 // modify the orderBeer() function to check if the beer is already in the orders array. if it is, increment the tally by 1. if it is not, add the beer to the orders array
 
+// calculate the total price of the order by multiplying the beer price by the number of beers in each order object reduce=>(totalPrice + orderPrice * tally)
+
 // initialize the app
 document.addEventListener('DOMContentLoaded', init);
