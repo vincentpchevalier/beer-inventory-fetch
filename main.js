@@ -109,13 +109,22 @@ function orderBeer(ev) {
 
 		const beer = beerMenu.find((beer) => beer.id === listId);
 
-		orders.push(beer);
+		const existingOrder = orders.find((order) => order.id === listId);
+
+		if (existingOrder) {
+			existingOrder.tally += 1;
+		} else {
+			const order = {
+				id: beer.id,
+				name: beer.name,
+				price: beer.price,
+				tally: 1,
+			};
+			orders.push(order);
+		}
 
 		displayOrders(orders);
-
-		console.log(beer);
-	} else {
-		console.log('wrong place');
+		displayTotalPrice(orders);
 	}
 }
 
@@ -130,6 +139,7 @@ function displayOrders(orderArr) {
 			return `
 	      <li class="order" data-id="${order.id}">
 	        <p class="order__name">${order.name}</p>
+	        <p class="order__tally">${order.tally}</p>
 	        <p class="order__price">$${order.price}</p>
 	      </li>
 	    `;
@@ -138,6 +148,19 @@ function displayOrders(orderArr) {
 
 	console.log(html);
 	orderList.innerHTML = html;
+}
+
+function calculateTotalPrice(orders) {
+	return orders.reduce(
+		(totalPrice, order) => totalPrice + order.price * order.tally,
+		0
+	);
+}
+
+function displayTotalPrice(orders) {
+	const total = calculateTotalPrice(orders);
+	const totalPriceDisplay = document.querySelector('#totalPrice');
+	totalPriceDisplay.textContent = `$${total.toFixed(2)}`;
 }
 
 // create an object called order and include the id, name, price, and tally. create an orders array to store the orders. push each order to an array of orders
