@@ -13,7 +13,7 @@ function init() {
 
 // run the fetchBeers() function when the app is initialized
 function fetchBeers() {
-	const size = 5;
+	const size = 3;
 	const url = `https://random-data-api.com/api/v2/beers?size=${size}`;
 
 	fetch(url)
@@ -101,7 +101,7 @@ function getRandomPrice(min, max) {
 // 	tally: 1,
 // };
 
-// Check if the beer is already in the orders array. If it is not, add the beer to the orders array with a tally of 1. Otherwise, increment the tally by 1. 
+// Check if the beer is already in the orders array. If it is not, add the beer to the orders array with a tally of 1. Otherwise, increment the tally by 1.
 
 function orderBeer(ev) {
 	// use ev.target, .matched(), and .closest() to get the beer id from the clicked beer
@@ -183,7 +183,6 @@ function displayTotalPrice(orders) {
 	const totalPriceDisplay = document.querySelector('#totalPrice');
 	totalPriceDisplay.textContent = `$${total.toFixed(2)}`;
 }
-
 
 // initialize the app
 document.addEventListener('DOMContentLoaded', init);
