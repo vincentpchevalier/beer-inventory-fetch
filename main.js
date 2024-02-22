@@ -4,7 +4,9 @@
 
 // Create a function called fetchBeers() to fetch a list of beers from https://random-data-api.com/api/v2/beers
 
+
 // Add an event listener to the beerList <ul> to listen for clicks on the "Add to Order" buttons in the beer list.
+
 
 // Run the fetchBeers() function when the app is initialized.
 
