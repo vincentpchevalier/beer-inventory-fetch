@@ -1,6 +1,16 @@
+:root {
+	--color-primary: #00008b;
+	--color-gray: #515a5a;
+	--color-light: #f0fff0;
+
+	--color-black: #2a2a2a;
+	--color-white: #f5fffa;
+}
+
 body {
 	font-family: Arial, sans-serif;
-	background-color: linen;
+	background-color: var(--color-light);
+	color: var(--color-black);
 	margin: 0;
 	padding: 0;
 }
@@ -13,6 +23,7 @@ main {
 }
 
 h1,
+h2,
 p,
 span#totalPrice {
 	margin: 0;
@@ -23,16 +34,32 @@ h1 {
 }
 
 .beers {
-	grid-column: 1 / 2;
+	grid-column: 1 / -1;
+}
+
+#beerList {
+	display: flex;
+	flex-direction: column;
 }
 
 .orders {
-	grid-column: 2 / 3;
+	grid-column: 1 / -1;
+	grid-row: 2 / 3;
+}
+
+@media only screen and (min-width: 65em) {
+	.beers {
+		grid-column: 1 / 2;
+	}
+
+	.orders {
+		grid-column: 2 / 3;
+	}
 }
 
 #beerList,
 #orderList {
-	background-color: #fff;
+	background-color: var(--color-white);
 	padding: 20px;
 	border: 1px solid #ddd;
 	border-radius: 5px;
@@ -58,7 +85,7 @@ h1 {
 }
 
 .tally {
-	background-color: #fff;
+	background-color: var(--color-white);
 	display: flex;
 }
 
@@ -92,7 +119,7 @@ h1 {
 
 .beer__button {
 	grid-column: 1 / span 2;
-	background-color: #007bff;
+	background-color: var(--color-gray);
 	color: #fff;
 	border: none;
 	border-radius: 5px;
@@ -101,7 +128,7 @@ h1 {
 }
 
 .beer__button:hover {
-	background-color: #0056b3;
+	background-color: var(--color-black);
 }
 
 .order__name {
