@@ -46,9 +46,9 @@ function fetchBeers() {
 		.catch((err) => console.log(err));
 }
 
-// create a function called displayBeers() to display the list of beers in the beerList <ul>
+// Create a function called displayBeers() to display the list of beers in the beerList <ul>.
 
-// build the list of beers with the following markup:
+// Build the list of beers using a map, join, and a template literal using the following markup:
 // `
 //   <li class="beer" data-id="${beer.id}">
 //     <div class="beer__info">
@@ -80,11 +80,10 @@ function displayBeers(beers) {
             `;
 		})
 		.join('');
-	// console.log(html);
 	beerList.innerHTML = html;
 }
 
-// create a function that returns a random price between two numbers and that is a string with two decimal places
+// Create a function that returns a random price between two numbers and that is a string with two decimal places
 
 function getRandomPrice(min, max) {
 	const cents = Math.random() < 0.5 ? '00' : '50';
@@ -92,13 +91,17 @@ function getRandomPrice(min, max) {
 	return `${dollars}.${cents}`;
 }
 
-/* 
+// Create a function called orderBeer() to add a beer to the order array when the user clicks the "Add to Order" button. Only include the id, name, price, and tally. Use ev.target and the .matches() method to check if the clicked element is the "Add to Order" button. Use the .closest() method to get the beer id from the clicked beer.
 
-WHERE WE WILL START DURING SESSION TWO
+// Your data should look like this:
+// const order = {
+// 	id: beer.id,
+// 	name: beer.name,
+// 	price: beer.price,
+// 	tally: 1,
+// };
 
-*/
-
-// create a function called orderBeer() to add a beer to an order array when the user clicks the "Add to Order" button
+// Check if the beer is already in the orders array. If it is not, add the beer to the orders array with a tally of 1. Otherwise, increment the tally by 1. 
 
 function orderBeer(ev) {
 	// use ev.target, .matched(), and .closest() to get the beer id from the clicked beer
@@ -128,27 +131,45 @@ function orderBeer(ev) {
 	}
 }
 
-// create a function called displayOrders() to display the orders from the orders array in the orderList <ul>
+// Create a function called displayOrders() to display the orders from the orders array in the orderList <ul>. Use the document fragment and append methods to display the orders on the page.
 
 function displayOrders(orderArr) {
 	const orderList = document.querySelector('#orderList');
 	console.log(orderArr);
 
-	let html = orderArr
-		.map((order) => {
-			return `
-	      <li class="order" data-id="${order.id}">
-	        <p class="order__name">${order.name}</p>
-	        <p class="order__tally">${order.tally}</p>
-	        <p class="order__price">$${order.price}</p>
-	      </li>
-	    `;
-		})
-		.join('');
+	const fragment = document.createDocumentFragment();
 
-	console.log(html);
-	orderList.innerHTML = html;
+	orderArr.forEach((order) => {
+		const li = document.createElement('li');
+		li.classList.add('order');
+		li.dataset.id = order.id;
+
+		const nameParagraph = document.createElement('p');
+		nameParagraph.classList.add('order__name');
+		nameParagraph.textContent = order.name;
+		li.appendChild(nameParagraph);
+
+		const tallyParagraph = document.createElement('p');
+		tallyParagraph.classList.add('order__tally');
+		tallyParagraph.textContent = order.tally;
+		li.appendChild(tallyParagraph);
+
+		const priceParagraph = document.createElement('p');
+		priceParagraph.classList.add('order__price');
+		priceParagraph.textContent = `$${order.price}`;
+		li.appendChild(priceParagraph);
+
+		fragment.appendChild(li);
+	});
+
+	// Clear existing content before appending the fragment
+	orderList.innerHTML = '';
+
+	// Append the fragment to the orderList
+	orderList.appendChild(fragment);
 }
+
+// Calculate the total price of the order by multiplying the beer price by the number of beers in each order object. Then use the reduce method (totalPrice + orderPrice * tally) to find the total price of the order. Display the total price in the totalPriceDisplay <p> element.
 
 function calculateTotalPrice(orders) {
 	return orders.reduce(
@@ -163,18 +184,6 @@ function displayTotalPrice(orders) {
 	totalPriceDisplay.textContent = `$${total.toFixed(2)}`;
 }
 
-// create an object called order and include the id, name, price, and tally. create an orders array to store the orders. push each order to an array of orders
-
-// const order = {
-// 	id: beer.id,
-// 	name: beer.name,
-// 	price: beer.price,
-// 	tally: 1,
-// };
-
-// modify the orderBeer() function to check if the beer is already in the orders array. if it is, increment the tally by 1. if it is not, add the beer to the orders array
-
-// calculate the total price of the order by multiplying the beer price by the number of beers in each order object reduce=>(totalPrice + orderPrice * tally)
 
 // initialize the app
 document.addEventListener('DOMContentLoaded', init);
